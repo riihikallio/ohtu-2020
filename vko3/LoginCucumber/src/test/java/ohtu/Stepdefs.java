@@ -29,6 +29,11 @@ public class Stepdefs {
     public void commandLoginSelected() throws Throwable {
         inputLines.add("login");
     }
+    
+    @Given("^command new is selected$")
+    public void commandNewSelected() throws Throwable {
+        inputLines.add("new");
+    }
 
     @When("username {string} and password {string} are entered")
     public void usernameAndPasswordAreEntered(String username, String password) {
