@@ -1,5 +1,6 @@
 package ohtu;
 
+import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,20 +15,51 @@ public class Tester {
         
         sleep(2);
         
-        WebElement element = driver.findElement(By.linkText("login"));
-        element.click();
-
-        sleep(2);
-
-        element = driver.findElement(By.name("username"));
-        element.sendKeys("pekka");
-        element = driver.findElement(By.name("password"));
-        element.sendKeys("akkep");
-        element = driver.findElement(By.name("login"));
+//        // Malli
+//        WebElement element = driver.findElement(By.linkText("login"));
+//        element.click();
+//        sleep(2);
+//        element = driver.findElement(By.name("username"));
+//        element.sendKeys("pekka");
+//        element = driver.findElement(By.name("password"));
+//        element.sendKeys("akkep");
+//        element = driver.findElement(By.name("login"));
+//        sleep(2);
+//        element.submit();
         
+//        // Oikea tunnus, väärä salasana
+//        WebElement element = driver.findElement(By.linkText("login"));
+//        element.click();
+//        sleep(2);
+//        element = driver.findElement(By.name("username"));
+//        element.sendKeys("pekka");
+//        element = driver.findElement(By.name("password"));
+//        element.sendKeys("huono");
+//        element = driver.findElement(By.name("login"));
+//        sleep(2);
+//        element.submit();
+
+        // Uuden käyttäjän luominen ja uloskirjautuminen
+        WebElement element = driver.findElement(By.linkText("register new user"));
+        element.click();
+        sleep(2);
+        Random r = new Random();
+        element = driver.findElement(By.name("username"));
+        element.sendKeys("arto"+r.nextInt(100000));
+        element = driver.findElement(By.name("password"));
+        element.sendKeys("jiihaa");
+        element = driver.findElement(By.name("passwordConfirmation"));
+        element.sendKeys("jiihaa");
+        element = driver.findElement(By.name("signup"));
         sleep(2);
         element.submit();
-
+        sleep(3);
+        element = driver.findElement(By.linkText("continue to application mainpage"));
+        element.click();
+        sleep(3);
+        element = driver.findElement(By.linkText("logout"));
+        element.click();
+        
         sleep(3);
         
         driver.quit();
