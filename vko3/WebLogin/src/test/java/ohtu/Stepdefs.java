@@ -22,14 +22,7 @@ public class Stepdefs {
         WebElement element = driver.findElement(By.linkText("login"));       
         element.click();   
     }    
-    
-    @Given("command new user is selected")
-    public void createNewUserIsSelected() {
-        driver.get(baseUrl);
-        WebElement element = driver.findElement(By.linkText("register new user"));       
-        element.click();   
-    }    
-    
+   
     @When("correct username {string} and password {string} are given")
     public void correctUsernameAndPasswordAreGiven(String username, String password) {
         logInWith(username, password);
@@ -66,6 +59,13 @@ public class Stepdefs {
         assertTrue(driver.getPageSource().contains(pageContent));
     }
     
+    @Given("command new user is selected")
+    public void createNewUserIsSelected() {
+        driver.get(baseUrl);
+        WebElement element = driver.findElement(By.linkText("register new user"));       
+        element.click();   
+    }    
+     
     @When("a valid username {string} and password {string} and matching password confirmation are entered")
     public void createUserWithValidUsernameAndPassword(String username, String password) throws Throwable {
         createUser(username, password, password);
@@ -105,6 +105,18 @@ public class Stepdefs {
     public void newUserIsNotCreatedDueToNonMatchingPasswords() {
         pageHasContent("password and password confirmation do not match");
     }
+    
+    @Given("user with username {string} with password {string} is successfully created")
+    public void userIsCreated(String username, String password) {
+        createNewUserIsSelected();
+        createUser(username, password, password);
+    }    
+ 
+    @Given("user with username {string} and password {string} is tried to be created")
+    public void userIsNotCreated(String username, String password) {
+        createNewUserIsSelected();
+        createUser(username, password, password);
+    }    
         
     @After
     public void tearDown(){
