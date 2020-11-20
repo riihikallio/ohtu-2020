@@ -23,3 +23,10 @@
 hs_err_pid*
 
 salasanat.txt
+.gradle/
+build/
+/vko4/IntJoukkoSovellus/build/
+/vko4/MockitoDemo/build/
+/vko4/MaksukorttiMockito/build/
+/vko4/Tennis/build/
+/vko4/Verkkokauppa/build/
