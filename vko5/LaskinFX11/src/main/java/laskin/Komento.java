@@ -34,7 +34,8 @@ public abstract class Komento {
         sovellus.aseta(edellinen);
         try {
             edellinen = Integer.parseInt(tuloskentta.getText());
-        } catch (Exception e) { }
+        } catch (Exception e) {
+        }
         esita();
     }
 

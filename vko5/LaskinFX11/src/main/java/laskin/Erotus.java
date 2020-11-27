@@ -5,8 +5,6 @@
  */
 package laskin;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
