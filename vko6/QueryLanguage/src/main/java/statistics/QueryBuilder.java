@@ -28,22 +28,22 @@ public class QueryBuilder {
     }
 
     public QueryBuilder playsIn(String team) {
-        matchers.add(new PlaysIn(team));
+        this.matchers.add(new PlaysIn(team));
         return this;
     }
 
     public QueryBuilder hasAtLeast(int value, String category) {
-        matchers.add(new HasAtLeast(value, category));
+        this.matchers.add(new HasAtLeast(value, category));
         return this;
     }
 
     public QueryBuilder hasFewerThan(int value, String category) {
-        matchers.add(new HasFewerThan(value, category));
+        this.matchers.add(new HasFewerThan(value, category));
         return this;
     }
 
     public QueryBuilder oneOf(Matcher... ms) {
-        matchers.add(new Or(ms));
+        this.matchers.add(new Or(ms));
         return this;
     }
 }
