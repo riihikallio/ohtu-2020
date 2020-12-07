@@ -22,7 +22,7 @@ public class QueryBuilder {
     }
 
     public Matcher build() {
-        Matcher result = new QBMatcher(matchers);
+        Matcher result = new And(matchers);
         this.matchers = new ArrayList<>();
         return result;
     }

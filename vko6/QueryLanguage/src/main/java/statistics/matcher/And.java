@@ -1,5 +1,6 @@
 package statistics.matcher;
 
+import java.util.List;
 import statistics.Player;
 
 public class And implements Matcher {
@@ -8,6 +9,11 @@ public class And implements Matcher {
 
     public And(Matcher... matchers) {
         this.matchers = matchers;
+    }
+
+    public And(List<Matcher> matchers) {
+        this.matchers = new Matcher[matchers.size()];
+        this.matchers = matchers.toArray(this.matchers);
     }
 
     @Override
